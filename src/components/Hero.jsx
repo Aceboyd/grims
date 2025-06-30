@@ -31,6 +31,23 @@ const Hero = () => {
             src="/video/war.mov"
             type="video/quicktime"
           />
+          <source
+            src="/video/war.webm"
+            type="video/webm"
+          />
+          {/* Fallback agricultural videos from Pexels */}
+          <source
+            src="https://videos.pexels.com/video-files/4824358/4824358-uhd_2560_1440_25fps.mp4"
+            type="video/mp4"
+          />
+          <source
+            src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_25fps.mp4"
+            type="video/mp4"
+          />
+          <source
+            src="https://videos.pexels.com/video-files/2022395/2022395-hd_1920_1080_30fps.mp4"
+            type="video/mp4"
+          />
           {/* Fallback for browsers that don't support video */}
           Your browser does not support the video tag.
         </video>

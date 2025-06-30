@@ -34,19 +34,6 @@ const Hero = () => {
             src="/src/assets/video/war.webm"
             type="video/webm"
           />
-          {/* Fallback videos in case local video doesn't load */}
-          <source
-            src="https://videos.pexels.com/video-files/4824358/4824358-uhd_2560_1440_25fps.mp4"
-            type="video/mp4"
-          />
-          <source
-            src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_25fps.mp4"
-            type="video/mp4"
-          />
-          <source
-            src="https://videos.pexels.com/video-files/2022395/2022395-hd_1920_1080_30fps.mp4"
-            type="video/mp4"
-          />
           {/* Fallback for browsers that don't support video */}
           Your browser does not support the video tag.
         </video>

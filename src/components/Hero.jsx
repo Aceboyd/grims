@@ -15,24 +15,21 @@ const Hero = () => {
           onError={(e) => {
             // Hide video and show fallback background if video fails to load
             e.target.style.display = 'none';
-            e.target.parentElement.style.backgroundImage = 'url(https://images.pexels.com/photos/1112080/pexels-photo-1112080.jpeg?auto=compress&cs=tinysrgb&w=1920)';
-            e.target.parentElement.style.backgroundSize = 'cover';
-            e.target.parentElement.style.backgroundPosition = 'center';
+            const fallbackDiv = e.target.parentElement.querySelector('.fallback-bg');
+            if (fallbackDiv) {
+              fallbackDiv.style.display = 'block';
+            }
           }}
         >
-          {/* Your local video - war video in src/assets/video folder */}
+          {/* Correct path for deployed video - should be in public/assets/video/ */}
           <source
-            src="/src/assets/video/war.mp4"
+            src="/video/war.mp4"
             type="video/mp4"
           />
           {/* Try different extensions in case the file has a different format */}
           <source
-            src="/src/assets/video/war.mov"
+            src="/video/war.mov"
             type="video/quicktime"
-          />
-          <source
-            src="/src/assets/video/war.webm"
-            type="video/webm"
           />
           {/* Fallback for browsers that don't support video */}
           Your browser does not support the video tag.
@@ -40,7 +37,7 @@ const Hero = () => {
         
         {/* Fallback background image */}
         <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          className="fallback-bg absolute inset-0 w-full h-full bg-cover bg-center"
           style={{
             backgroundImage: 'url(https://images.pexels.com/photos/1112080/pexels-photo-1112080.jpeg?auto=compress&cs=tinysrgb&w=1920)',
             display: 'none'
@@ -154,6 +151,57 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes fade-in {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slide-up {
+          from { opacity: 0; transform: translateY(40px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slide-in-right {
+          from { opacity: 0; transform: translateX(40px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes expand {
+          from { width: 0; }
+          to { width: 6rem; }
+        }
+        
+        .animate-fade-in {
+          animation: fade-in 1s ease-out;
+        }
+        
+        .animate-fade-in-delay {
+          animation: fade-in 1s ease-out 0.3s both;
+        }
+        
+        .animate-fade-in-delay-2 {
+          animation: fade-in 1s ease-out 0.6s both;
+        }
+        
+        .animate-fade-in-delay-3 {
+          animation: fade-in 1s ease-out 0.9s both;
+        }
+        
+        .animate-slide-up {
+          animation: slide-up 1s ease-out 0.2s both;
+        }
+        
+        .animate-slide-in-right {
+          animation: slide-in-right 1s ease-out 0.5s both;
+        }
+        
+        .animate-expand {
+          animation: expand 1s ease-out 0.8s both;
+        }
+      `}</style>
     </section>
   );
 };
